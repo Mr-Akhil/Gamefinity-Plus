@@ -1,0 +1,144 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="e_Sports.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link href="css/home.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Red+Hat+Display&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
+    <%--Date Picker--%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <%--Time Picker--%>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.css">
+    
+    <style>
+        body{
+            background-color : #171717;
+            /*background-color : #2B3B3A;*/
+            font-family: 'poppins';
+        }  
+        .sticky {
+            padding-top:7px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(90deg, rgba(193,153,32,1) 0%, rgba(244,203,96,1) 50%, rgba(193,153,32,1) 100%);
+            /*background-color: #FFCEA2;*/
+            color: black;
+            text-align: center;
+            margin-top:-500px;
+            margin-bottom:-12px;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"> 
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+    <section>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+                <a class="navbar-brand" href="#">
+                    <img src="Img/logogold.png" width="110" height="55" />
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="homepage.aspx">Home<span class="sr-only">(current)</span></a>
+                      </li>
+                    </ul>
+                    
+                    <ul class="navbar-nav mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="btnAddEvent" OnClick="btnAddEvent_Click" runat="server" >Add Event</asp:LinkButton>
+                        </li>
+                        <%--<li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="btnUpdateEvent" runat="server" >Update Event</asp:LinkButton>
+                        </li>--%>
+                        <li class="nav-item active">
+                          <asp:LinkButton class="nav-link" ID="greeting" text="Hello! User" runat="server" />
+                        </li>
+                        <li class="nav-item active">
+                          <asp:LinkButton class="nav-link" ID="btnPOwerOff" OnClick="btnPowerOff_Click" runat="server" ><i class="fas fa-power-off"></i></asp:LinkButton>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </nav>
+        </div>
+    </section>
+
+
+       
+
+    <section>
+        <!-- Main Content Placeholder -->
+        <div class="container" style="margin-bottom:80px;margin-top:80px;">
+            <asp:ContentPlaceHolder ID="mainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </section>
+
+
+   </form>
+
+
+      
+
+    <section>
+        <div class="container">
+        <footer class="sticky footer">
+            <p> &copy; All Right Reserved. <a href="#" target="_blank">E-Sports Tournament</a>
+        </footer>
+        </div>
+    </section>
+ 
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/master/src/js/bootstrap-datetimepicker.js"></script>
+    <script>
+        $(document).ready(function () {
+            var date_input = $('[id$=date]'); //our date input has the name "date"
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "footer";
+            var options = {
+                format: 'yyyy-mm-dd',
+                appendWidgetTo: 'body',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            };
+            date_input.datepicker(options);
+        })
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('[id*=txtTime]').datetimepicker({
+                format: 'LT'
+            });
+        });
+    </script>
+</body>
+</html>
